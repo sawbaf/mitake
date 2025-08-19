@@ -1,0 +1,40 @@
+name: 三竹簡訊 Python 函式庫測試
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9, "3.10", "3.11"]
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: 設定 Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: 安裝相依套件
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+    - name: 執行測試
+      run: |
+        python run_tests.py
+    
+    - name: 測試中文編碼
+      run: |
+        make test-encoding
+    
+    - name: 執行快速測試
+      run: |
+        python run_tests.py --quick
