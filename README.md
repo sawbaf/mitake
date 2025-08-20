@@ -14,7 +14,7 @@
 ## 安裝
 
 ```bash
-pip install -e .
+pip install mitake
 ```
 
 ## 快速開始
