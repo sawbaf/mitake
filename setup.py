@@ -7,14 +7,14 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
 
 setup(
-    name="mitake-sms",
-    version="0.1.0",
-    author="Your Name",
-    author_email="your.email@example.com",
+    name="mitake",
+    version="0.9.2",
+    author="tzangms",
+    author_email="tzangms@gmail.com",
     description="Python library for Mitake SMS API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/mitake-sms-python",
+    url="https://github.com/tzangms/mitake",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -31,7 +31,7 @@ setup(
     install_requires=requirements,
     keywords="mitake sms api taiwan",
     project_urls={
-        "Bug Reports": "https://github.com/yourusername/mitake-sms-python/issues",
-        "Source": "https://github.com/yourusername/mitake-sms-python",
+        "Bug Reports": "https://github.com/tzangms/mitake/issues",
+        "Source": "https://github.com/tzangms/mitake",
     },
 )
